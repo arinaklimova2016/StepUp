@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StepUp</string>
+    <string name="service_count_steps">Давай зробимо цей день активним!</string>
+    <string name="hello">"Вітаю, "</string>
+    <string name="exclamation_mark">!</string>
+    <string name="achievements">Щоденні досягнення</string>
+    <string name="analytics">Аналітика</string>
+    <string name="analytics_week">Аналітика за тиждень</string>
+    <string name="analytics_month">Аналітика за місяць</string>
+    <string name="no_data">Данні відсутні</string>
+    <string name="no_data_description">За вказаний період дані не внесені, або ви не маєте до них доступу</string>
+    <string name="analytics_year">Аналітика за рік</string>
+
+    <string-array name="days_of_week">
+        <item>Пн</item>
+        <item>Вт</item>
+        <item>Ср</item>
+        <item>Чт</item>
+        <item>Пт</item>
+        <item>Сб</item>
+        <item>Нд</item>
+    </string-array>
+
+    <string-array name="months_of_year">
+        <item>Січ</item>
+        <item>Лют</item>
+        <item>Бер</item>
+        <item>Кві</item>
+        <item>Тра</item>
+        <item>Чер</item>
+        <item>Лип</item>
+        <item>Сер</item>
+        <item>Вер</item>
+        <item>Жов</item>
+        <item>Лиc</item>
+        <item>Гру</item>
+    </string-array>
+    <string name="enter_name">Вкажіть своє ім\'я</string>
+    <string name="gender">Стать:</string>
+    <string name="age">Вік:</string>
+    <string name="weight">Вага:</string>
+    <string name="height">Зріст:</string>
+    <string name="registration">Зареєструватися</string>
+    <string name="save_changes">Зберегти зміни</string>
+    <string name="pls_enter_name">Будь-ласка вкажіть ваше ім\'я</string>
+    <string name="pls_enter_age">Будь-ласка вкажіть ваш вік</string>
+    <string name="pls_enter_height">Будь-ласка вкажіть ваш зріст</string>
+    <string name="pls_enter_weight">Будь-ласка вкажіть вашу вагу</string>
+    <string name="enter_step_goal">Вкажіть бажану к-сть кроків</string>
+    <string name="pls_enter_step_goal">Будь-ласка вкажіть вашу бажану кількість кроків</string>
+    <string name="steps">Кроки</string>
+    <string name="calories">Калорії</string>
+    <string name="distance">Дистанція</string>
+    <string name="marathoner">Марафонець</string>
+    <string name="marathoner_descr">Пройдено 42 195 кроків (довжина марафонської дистанції)</string>
+    <string name="super_walker">Супер-пішохід</string>
+    <string name="super_walker_descr">Пройдено 100 000 кроків</string>
+    <string name="million_steps">Мільйон кроків</string>
+    <string name="million_steps_descr">Досягнуто 1 000 000 кроків за весь час</string>
+    <string name="circled_the_earth">Окружив Землю</string>
+    <string name="circled_the_earth_descr">Пройдено 50 000 000 кроків (приблизна довжина екватора)</string>
+    <string name="active_month">Активний місяць</string>
+    <string name="active_month_descr">Пройдено 300 000 кроків за один місяць</string>
+    <string name="everest_summit">Вершина Евересту</string>
+    <string name="everest_summit_descr">Пройдено 58 070 кроків (приблизно висота гори в кроках)</string>
+    <string name="trip_to_the_moon">Поход на Місяць</string>
+    <string name="trip_to_the_moon_descr">Пройдено 478 000 000 кроків (відстань до Місяця в кроках)</string>
+    <string name="billion_steps">Мільярд кроків</string>
+    <string name="billion_steps_descr">Пройдено 1 000 000 000 кроків за весь час</string>
+    <string name="burned_pizza">Спалена піца</string>
+    <string name="burned_pizza_descr">Спалено 300 калорій (приблизна кількість калорій в одному шматочку піци)</string>
+    <string name="mini_marathon_of_calories">Міні-марафон калорій</string>
+    <string name="mini_marathon_of_calories_descr">Спалено 1,000 калорій за тиждень</string>
+    <string name="burned_cake">Спалений торт</string>
+    <string name="burned_cake_descr">Спалено 2,000 калорій (приблизна калорійність цілого торта)</string>
+    <string name="burned_daily_norm">Спалена денна норма</string>
+    <string name="burned_daily_norm_descr">Спалено 2,500 калорій за один день (рекомендована денна норма для дорослого)</string>
+    <string name="ten_k_calories">10,000 калорій</string>
+    <string name="ten_k_calories_descr">Всього спалено 10,000 калорій</string>
+    <string name="burned_month_worth_calories">Спалено місячну норму калорій</string>
+    <string name="burned_month_worth_calories_descr">Спалено 75,000 калорій за місяць</string>
+    <string name="one_hundred_thousand_calories">100,000 калорій</string>
+    <string name="one_hundred_thousand_calories_descr">Всього спалено 100,000 калорій</string>
+    <string name="burned_big_mac">Спалений \"Біг Мак\"</string>
+    <string name="burned_big_mac_descr">Спалено 550 калорій (приблизна калорійність популярного бургера)</string>
+    <string name="million_calories">Мільйон калорій</string>
+    <string name="million_calories_descr">Спалено 1,000,000 калорій за весь час</string>
+    <string name="five_km_on_foot">5 км Пішки</string>
+    <string name="five_km_on_foot_descr">Пройдено 5 кілометрів за один день</string>
+    <string name="golden_ten">Золота десятка</string>
+    <string name="golden_ten_descr">Пройдено 10 кілометрів за один день</string>
+    <string name="fifty_km_journey">50 км Подорож</string>
+    <string name="fifty_km_journey_descr">Загалом пройдено 50 кілометрів</string>
+    <string name="walking_to_work">Пішки на роботу</string>
+    <string name="walking_to_work_descr">Пройдено 100 кілометрів</string>
+    <string name="two_hundred_km_weekend">Вихідні на 200 км</string>
+    <string name="two_hundred_km_weekend_descr">Пройдено 200 кілометрів за місяць</string>
+    <string name="one_thousand_km_in_year">1,000 км за рік</string>
+    <string name="one_thousand_km_in_year_descr">Пройдено 1,000 кілометрів за рік</string>
+    <string name="continental_traveler">Континентальний мандрівник</string>
+    <string name="continental_traveler_descr">"Пройдено 5,000 кілометрів "</string>
+    <string name="ultra_hike">Ультра-Похід</string>
+    <string name="ultra_hike_descr">Загальна відстань: 10,000 кілометрів</string>
+    <string name="circled_the_earth_twice">Окружив Землю двічі</string>
+    <string name="circled_the_earth_twice_descr">Пройдено 80,000 кілометрів (два екватори Землі)</string>
+    <string name="something_went_wrong">Щось пішло не так</string>
+</resources>

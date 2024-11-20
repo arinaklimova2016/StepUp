@@ -1,0 +1,115 @@
+<resources>
+    <string name="app_name">StepUp</string>
+    <string name="service_count_steps">Let\'s make this day active!</string>
+    <string name="hello">Hello, </string>
+    <string name="exclamation_mark">!</string>
+    <string name="achievements">Daily achievements</string>
+    <string name="analytics">Analytics</string>
+    <string name="calories_abbreviation" translatable="false">kcal</string>
+    <string name="distance_abbreviation" translatable="false">km</string>
+    <string name="something_went_wrong">Something went wrong</string>
+
+    <string name="analytics_week">Analytics for the week</string>
+    <string name="analytics_month">Analytics for the month</string>
+    <string name="analytics_year">Analytics for the year</string>
+    <string name="steps">Steps</string>
+    <string name="calories">Calories</string>
+    <string name="distance">Distance</string>
+    <string name="no_data">No data</string>
+    <string name="no_data_description">No data has been entered for the specified period, or you do not have access to it</string>
+
+    <string name="enter_name">Enter your name</string>
+    <string name="gender">Gender:</string>
+    <string name="age">Age:</string>
+    <string name="weight">Weight:</string>
+    <string name="height">Height:</string>
+    <string name="enter_step_goal">Enter your step goal</string>
+    <string name="mask_of_entered" translatable="false">XX.X</string>
+    <string name="registration">Registration</string>
+    <string name="save_changes">Save changes</string>
+    <string name="pls_enter_name">Please enter your name</string>
+    <string name="pls_enter_age">Please enter your age</string>
+    <string name="pls_enter_height">Please enter your height</string>
+    <string name="pls_enter_weight">Please enter your weight</string>
+    <string name="pls_enter_step_goal">Please enter your step goal</string>
+    
+    <string name="marathoner">Marathoner</string>
+    <string name="marathoner_descr">42,195 steps completed (the length of a marathon distance)</string>
+    <string name="super_walker">Super Walker</string>
+    <string name="super_walker_descr">100,000 steps completed</string>
+    <string name="million_steps">Million Steps</string>
+    <string name="million_steps_descr">Reached 1,000,000 steps in total</string>
+    <string name="circled_the_earth">Circled the Earth</string>
+    <string name="circled_the_earth_descr">50,000,000 steps completed (approximately the length of the equator)</string>
+    <string name="active_month">Active Month</string>
+    <string name="active_month_descr">300,000 steps completed in one month</string>
+    <string name="everest_summit">Everest Summit</string>
+    <string name="everest_summit_descr">58,070 steps completed (approximately the height of Mount Everest in steps)</string>
+    <string name="trip_to_the_moon">Trip to the Moon</string>
+    <string name="trip_to_the_moon_descr">478,000,000 steps completed (the distance to the Moon in steps)</string>
+    <string name="billion_steps">Billion Steps</string>
+    <string name="billion_steps_descr">1,000,000,000 steps completed in total</string>
+
+    <string name="burned_pizza">Burned Pizza</string>
+    <string name="burned_pizza_descr">Burned 300 calories (approximately the number of calories in one slice of pizza)</string>
+    <string name="mini_marathon_of_calories">Mini-Marathon of Calories</string>
+    <string name="mini_marathon_of_calories_descr">Burned 1,000 calories in a week</string>
+    <string name="burned_cake">Burned Cake</string>
+    <string name="burned_cake_descr">Burned 2,000 calories (the approximate calorie content of a whole cake)</string>
+    <string name="burned_daily_norm">Burned Daily Norm</string>
+    <string name="burned_daily_norm_descr">Burned 2,500 calories in one day (recommended daily intake for an adult)</string>
+    <string name="ten_k_calories">10,000 Calories</string>
+    <string name="ten_k_calories_descr">A total of 10,000 calories burned</string>
+    <string name="burned_month_worth_calories">Burned a Month\'s Worth of Calories</string>
+    <string name="burned_month_worth_calories_descr">Burned 75,000 calories in a month</string>
+    <string name="one_hundred_thousand_calories">100,000 Calories</string>
+    <string name="one_hundred_thousand_calories_descr">A total of 100,000 calories burned</string>
+    <string name="burned_big_mac">Burned "Big Mac"</string>
+    <string name="burned_big_mac_descr">Burned 550 calories (approximately the calorie content of a popular burger)</string>
+    <string name="million_calories">Million Calories</string>
+    <string name="million_calories_descr">Burned 1,000,000 calories over time</string>
+    
+    <string name="five_km_on_foot">5 km on Foot</string>
+    <string name="five_km_on_foot_descr">Walked 5 kilometers in one day</string>
+    <string name="golden_ten">Golden Ten</string>
+    <string name="golden_ten_descr">Walked 10 kilometers in one day</string>
+    <string name="fifty_km_journey">50 km Journey</string>
+    <string name="fifty_km_journey_descr">Total distance walked: 50 kilometers</string>
+    <string name="walking_to_work">Walking to Work</string>
+    <string name="walking_to_work_descr">Walked 100 kilometers</string>
+    <string name="two_hundred_km_weekend">200 km Weekend</string>
+    <string name="two_hundred_km_weekend_descr">Walked 200 kilometers in a month</string>
+    <string name="one_thousand_km_in_year">1,000 km in a Year</string>
+    <string name="one_thousand_km_in_year_descr">Walked 1,000 kilometers in a year</string>
+    <string name="continental_traveler">Continental Traveler</string>
+    <string name="continental_traveler_descr">Walked 5,000 kilometers</string>
+    <string name="ultra_hike">Ultra-Hike</string>
+    <string name="ultra_hike_descr">Total distance walked: 10,000 kilometers</string>
+    <string name="circled_the_earth_twice">Circled the Earth Twice</string>
+    <string name="circled_the_earth_twice_descr">Walked 80,000 kilometers (twice the circumference of the Earth)</string>
+
+    <string-array name="days_of_week">
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+        <item>Sun</item>
+    </string-array>
+
+    <string-array name="months_of_year">
+        <item>Ja</item>
+        <item>Fb</item>
+        <item>Ma</item>
+        <item>Ap</item>
+        <item>May</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Au</item>
+        <item>Se</item>
+        <item>Oc</item>
+        <item>No</item>
+        <item>De</item>
+    </string-array>
+</resources>
