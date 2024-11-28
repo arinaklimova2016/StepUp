@@ -50,7 +50,7 @@ class StepsService : Service(), SensorEventListener {
 
     override fun onSensorChanged(event: SensorEvent?) {
         if (event?.values != null) {
-            coroutineScope.launch {
+            coroutineScope.launch(Dispatchers.IO) {
                 stepRepository.insert(
                     StepData(
                         steps = event.values[0].toLong(),

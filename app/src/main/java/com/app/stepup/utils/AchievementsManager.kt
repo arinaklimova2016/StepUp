@@ -1,6 +1,5 @@
 package com.app.stepup.utils
 
-import android.util.Log
 import com.app.stepup.constants.Constants.ACTIVE_MONTH
 import com.app.stepup.constants.Constants.BILLION
 import com.app.stepup.constants.Constants.BURNED_BIG_MAC
@@ -29,6 +28,7 @@ import com.app.stepup.model.data.Name
 import com.app.stepup.model.data.Status
 import com.app.stepup.model.datastore.StepUpPreferencesRepository
 import kotlinx.coroutines.flow.first
+import java.time.LocalDate
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -46,22 +46,14 @@ class AchievementsManager @Inject constructor(
     private var userHeight: Double = 0.0
 
     suspend fun checkAchievements(achievements: List<Achievement>) {
-        Log.d("qazasdedc", "checkAchievements")
-        allSteps = stepRepository.getAllSteps().first()
-        stepsByMonth =
-            stepRepository.getAllStepsFromMonthByDays().first().values.sumOf { it.toLong() }
-        stepsByWeek =
-            stepRepository.getAllStepsFromWeekByDays().first().values.sumOf { it.toLong() }
-        stepsByToday = stepRepository.getAllStepsFromToday().first()
+        allSteps = stepRepository.getTotalSteps().first()
+        val monthlyData = stepRepository.getMonthlySteps()
+        stepsByToday = stepRepository.getDailySteps()
+        stepsByWeek = calculator.getCurrentWeekSteps(monthlyData).sumOf { it.steps } + stepsByToday
+        stepsByMonth = monthlyData.sumOf { it.steps } + stepsByToday
         stepsByYear =
-            stepRepository.getAlStepsFromYearByMonth().first().values.sumOf { it.toLong() }
+            stepRepository.getYearlySteps(LocalDate.now().year.toString()).sumOf { it.steps }
         userHeight = repository.getUserData().first().height
-        Log.d("qazasdedc", "allSteps $allSteps")
-        Log.d("qazasdedc", "stepsByToday $stepsByToday")
-        Log.d("qazasdedc", "stepsByWeek $stepsByWeek")
-        Log.d("qazasdedc", "stepsByMonth $stepsByMonth")
-        Log.d("qazasdedc", "stepsByYear $stepsByYear")
-        Log.d("qazasdedc", "userHeight $userHeight")
         achievements.map {
             when (it.status) {
                 Status.DONE -> {}
@@ -234,10 +226,6 @@ class AchievementsManager @Inject constructor(
                 it
             }
         }
-        Log.d("qazasdedc", "updateAchieve")
-        Log.d("qazasdedc", "oldAchievements $oldAchievements")
-        Log.d("qazasdedc", "achievement $achievement")
-        Log.d("qazasdedc", "updatedAchievements $updatedAchievements")
         repository.setAchievements(updatedAchievements)
     }
 }

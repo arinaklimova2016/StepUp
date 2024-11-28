@@ -12,6 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -29,9 +30,10 @@ class HomeViewModel @Inject constructor(
     private var _calories = MutableStateFlow(0.0)
 
     private var _distance = MutableStateFlow(0.0)
-    val actualSteps = stepRepository.getAllStepsFromToday()
 
-    val stepsByHour = stepRepository.getAllStepsFromTodayByHours()
+    val dailySteps = stepRepository.getFlowDailySteps()
+    val sumSteps = dailySteps.map { it.sum() }
+
     val stepGoal = repository.getStepGoal()
     val user = repository.getUserData()
     val achievement = repository.getAchievements()
@@ -39,9 +41,10 @@ class HomeViewModel @Inject constructor(
     val distance: StateFlow<Double> = _distance
     fun calculateActivityMetrics() {
         viewModelScope.launch {
-            _calories.value = calculator.calculateCalories(actualSteps.first())
-            _distance.value =
-                calculator.calculateDistanceInKm(user.first().height, actualSteps.first())
+            _calories.value = calculator.calculateCalories(sumSteps.first())
+            _distance.value = calculator.calculateDistanceInKm(
+                user.first().height, sumSteps.first()
+            )
         }
     }
 

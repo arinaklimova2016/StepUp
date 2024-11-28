@@ -69,8 +69,8 @@ fun HomeScreen(
     navController: NavController,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-    val actualSteps by viewModel.actualSteps.collectAsState(initial = 0)
-    val stepAnalytic by viewModel.stepsByHour.collectAsState(initial = emptyList())
+    val sumSteps by viewModel.sumSteps.collectAsState(initial = 0)
+    val dailySteps by viewModel.dailySteps.collectAsState(initial = emptyList())
     val user by viewModel.user.collectAsState(initial = emptyUser)
     val stepGoal by viewModel.stepGoal.collectAsState(initial = 0)
     val calories by viewModel.calories.collectAsState()
@@ -111,7 +111,7 @@ fun HomeScreen(
             modifier = Modifier
                 .fillMaxWidth(0.9f)
                 .aspectRatio(1f),
-            actualSteps,
+            sumSteps,
             stepGoal,
             calories,
             distance
@@ -122,7 +122,7 @@ fun HomeScreen(
                 .padding(16.dp)
         ) {
             AnalyticsView(
-                stepAnalytic,
+                dailySteps.map { it.toDouble() },
                 Modifier
                     .fillMaxWidth()
                     .fillMaxHeight(0.5f)
