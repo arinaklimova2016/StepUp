@@ -65,7 +65,6 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
 
 val MIGRATION_2_3 = object : Migration(2, 3) {
     override fun migrate(db: SupportSQLiteDatabase) {
-        // Шаг 1: создаем новую таблицу с правильным типом данных
         db.execSQL(
             """
             CREATE TABLE IF NOT EXISTS `yearly_steps_new` (
@@ -76,7 +75,6 @@ val MIGRATION_2_3 = object : Migration(2, 3) {
         """
         )
 
-        // Шаг 2: Копируем данные из старой таблицы в новую
         db.execSQL(
             """
             INSERT INTO `yearly_steps_new` (`year`, `month`, `steps`)
@@ -84,17 +82,14 @@ val MIGRATION_2_3 = object : Migration(2, 3) {
         """
         )
 
-        // Шаг 3: Удаляем старую таблицу
         db.execSQL("DROP TABLE `yearly_steps`")
 
-        // Шаг 4: Переименовываем новую таблицу в старое имя
         db.execSQL("ALTER TABLE `yearly_steps_new` RENAME TO `yearly_steps`")
     }
 }
 
 val MIGRATION_3_4 = object : Migration(3, 4) {
     override fun migrate(db: SupportSQLiteDatabase) {
-        // Создаем новую таблицу с обновленной структурой
         db.execSQL(
             """
             CREATE TABLE IF NOT EXISTS new_monthly_steps (
@@ -106,7 +101,6 @@ val MIGRATION_3_4 = object : Migration(3, 4) {
         """
         )
 
-        // Копируем данные из старой таблицы в новую
         db.execSQL(
             """
             INSERT INTO new_monthly_steps (month, day, steps)
@@ -114,10 +108,8 @@ val MIGRATION_3_4 = object : Migration(3, 4) {
         """
         )
 
-        // Удаляем старую таблицу
         db.execSQL("DROP TABLE IF EXISTS monthly_steps")
 
-        // Переименовываем новую таблицу в старое имя
         db.execSQL("ALTER TABLE new_monthly_steps RENAME TO monthly_steps")
     }
 }
@@ -135,7 +127,6 @@ val MIGRATION_4_5 = object : Migration(4, 5) {
         """
         )
 
-        // Переносим данные из старой таблицы в новую
         db.execSQL(
             """
             INSERT INTO yearly_steps_new (year, month, steps)
@@ -143,10 +134,8 @@ val MIGRATION_4_5 = object : Migration(4, 5) {
         """
         )
 
-        // Удаляем старую таблицу
         db.execSQL("DROP TABLE yearly_steps")
 
-        // Переименовываем новую таблицу в оригинальное имя
         db.execSQL("ALTER TABLE yearly_steps_new RENAME TO yearly_steps")
     }
 }

@@ -34,12 +34,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.app.stepup.R
 import com.app.stepup.constants.Constants.emptyUser
 import com.app.stepup.model.data.Gender
@@ -281,10 +279,4 @@ fun ProfileScreen(
             Spacer(modifier = Modifier.height(32.dp))
         }
     }
-}
-
-@Preview
-@Composable
-fun ProfilePreview() {
-    ProfileScreen(paddingValues = PaddingValues(), navController = rememberNavController())
 }

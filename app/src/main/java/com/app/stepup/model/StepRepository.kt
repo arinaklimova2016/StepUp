@@ -13,11 +13,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
-import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.ZoneId
-import java.time.ZonedDateTime
 import javax.inject.Inject
 
 class StepRepository @Inject constructor(
@@ -55,8 +52,8 @@ class StepRepository @Inject constructor(
 
     suspend fun insertTotalDb() {
         val stepsTotal = stepDao.getTotalSteps().firstOrNull()
-        if (stepsTotal == null || stepsTotal == 0L)
-            stepDao.insertInitial(TotalStepData(steps = getAllSteps()))
+        if (stepsTotal == null)
+            stepDao.insertInitial(TotalStepData(steps = 0L))
     }
 
     private suspend fun addToTotalDb(steps: StepData) {
@@ -129,94 +126,6 @@ class StepRepository @Inject constructor(
                 monthAndYear.second, monthAndYear.first, totalStepsForMonth
             )
         )
-    }
-
-    private fun getAllSteps(): Long {
-        return stepDao.getAll().sumOf { it.steps }
-    }
-
-    suspend fun processSteps() {
-        val rawSteps = stepDao.getAll()
-
-        if (rawSteps.isEmpty()) return
-
-        val now = ZonedDateTime.now()
-        val currentMonth = now.monthValue
-        val currentYear = now.year
-
-        val dailySteps = aggregateDailySteps(rawSteps, now)
-        val monthlySteps = aggregateMonthlySteps(rawSteps, currentMonth, currentYear)
-        val yearlySteps = aggregateYearlySteps(rawSteps, currentMonth, currentYear)
-
-        dailySteps.forEach { stepDao.insertOrUpdateDailySteps(it) }
-        monthlySteps.forEach { stepDao.insertOrUpdateMonthlySteps(it) }
-        yearlySteps.forEach { stepDao.insertOrUpdateYearlySteps(it) }
-
-        stepDao.clearStepsDb()
-    }
-
-    private fun aggregateDailySteps(
-        rawSteps: List<StepData>,
-        now: ZonedDateTime
-    ): List<DailyStepData> {
-        return rawSteps.filter { step ->
-            val stepDateTime =
-                ZonedDateTime.ofInstant(Instant.parse(step.createdAt), ZoneId.systemDefault())
-            stepDateTime.toLocalDate() == now.toLocalDate()
-        }.groupBy { step ->
-            ZonedDateTime.ofInstant(Instant.parse(step.createdAt), ZoneId.systemDefault()).hour
-        }.map { (hour, steps) ->
-            DailyStepData(
-                date = now.toLocalDate().toString(),
-                hour = hour,
-                steps = steps.sumOf { it.steps }
-            )
-        }
-    }
-
-    private fun aggregateMonthlySteps(
-        rawSteps: List<StepData>,
-        currentMonth: Int,
-        currentYear: Int
-    ): List<MonthlyStepData> {
-        return rawSteps.filter { step ->
-            val stepDateTime =
-                ZonedDateTime.ofInstant(Instant.parse(step.createdAt), ZoneId.systemDefault())
-            stepDateTime.year == currentYear &&
-                    stepDateTime.dayOfMonth != ZonedDateTime.now().dayOfMonth
-        }.groupBy { step ->
-            ZonedDateTime.ofInstant(
-                Instant.parse(step.createdAt),
-                ZoneId.systemDefault()
-            ).dayOfMonth
-        }.map { (day, steps) ->
-            MonthlyStepData(
-                month = "$currentYear-${currentMonth.toString().padStart(2, '0')}",
-                day = day,
-                steps = steps.sumOf { it.steps }
-            )
-        }
-    }
-
-    private fun aggregateYearlySteps(
-        rawSteps: List<StepData>,
-        currentMonth: Int,
-        currentYear: Int
-    ): List<YearlyStepData> {
-        return rawSteps.filter { step ->
-            val stepDateTime =
-                ZonedDateTime.ofInstant(Instant.parse(step.createdAt), ZoneId.systemDefault())
-            stepDateTime.year == currentYear &&
-                    stepDateTime.monthValue != currentMonth
-        }.groupBy { step ->
-            ZonedDateTime.ofInstant(Instant.parse(step.createdAt), ZoneId.systemDefault()).month
-        }.map { (month, steps) ->
-            YearlyStepData(
-                year = currentYear.toString(),
-                month = month.value,
-                steps = steps.sumOf { it.steps }
-            )
-        }
     }
 
     fun getStepsByWeek(

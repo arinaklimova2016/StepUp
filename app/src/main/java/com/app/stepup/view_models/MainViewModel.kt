@@ -24,21 +24,14 @@ class MainViewModel @Inject constructor(
 
     init {
         checkUserRegistration()
-        setOldDataInDbToNew()
     }
 
     private val _isUserRegistered = MutableStateFlow(false)
     val isUserRegistered: StateFlow<Boolean> = _isUserRegistered
 
-    private fun setOldDataInDbToNew() {
-        viewModelScope.launch(Dispatchers.IO) {
-            stepRepository.insertTotalDb()
-            stepRepository.processSteps()
-        }
-    }
-
     private fun checkUserRegistration() {
         viewModelScope.launch(Dispatchers.IO) {
+            stepRepository.insertTotalDb()
             repository.getUserData().collect {
                 val isRegistered = isUserRegistered(it)
                 _isUserRegistered.value = isRegistered

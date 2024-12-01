@@ -8,11 +8,6 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface StepDao {
-    @Query("SELECT * FROM steps")
-    fun getAll(): List<StepData>
-
-    @Query("DELETE FROM steps")
-    suspend fun clearStepsDb()
 
     @Query("SELECT * FROM daily_steps WHERE date = :date AND hour = :hour")
     suspend fun getStepDataByDateAndHour(date: String, hour: Int): DailyStepData?

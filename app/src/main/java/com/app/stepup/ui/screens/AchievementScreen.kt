@@ -23,11 +23,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.font.FontWeight.Companion.SemiBold
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.app.stepup.R
-import com.app.stepup.constants.Constants.defaultAchievements
 import com.app.stepup.model.data.Achievement
 import com.app.stepup.model.data.Status
 import com.app.stepup.ui.components.Background
@@ -43,7 +41,9 @@ fun AchievementScreen(paddingValues: PaddingValues, achievement: Achievement?) {
         Background()
         if (achievement != null) {
             Column(
-                Modifier.fillMaxSize().padding(horizontal = 16.dp),
+                Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
@@ -103,10 +103,4 @@ fun AchievementScreen(paddingValues: PaddingValues, achievement: Achievement?) {
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun PreviewAchievement() {
-    AchievementScreen(paddingValues = PaddingValues(), achievement = defaultAchievements[6])
 }
